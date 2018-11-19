@@ -98,8 +98,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     width: 60,
                   ),
                   Container(
-                    //height: 60,
-                    //width: 125,
+                    height: 60,
+                    width: 125,
                     alignment: Alignment.center,
                     padding: EdgeInsets.fromLTRB(5.0, 25.0, 25.0, 25.0),
                     decoration: BoxDecoration(
@@ -121,6 +121,32 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ],
           ),
+          SizedBox(height: 40),
+          Container(
+            padding: EdgeInsets.fromLTRB(25, 0, 25, 0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Text(
+                  'MY COACHES',
+                  style: TextStyle(
+                      color: Colors.grey,
+                      fontFamily: 'Montserrat',
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15),
+                ),
+                Text(
+                  'VIEW PAST SESSIONS',
+                  style: TextStyle(
+                      color: Colors.green,
+                      fontFamily: 'Montserrat',
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(height: 20),
         ],
       ),
     );
