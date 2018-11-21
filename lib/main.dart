@@ -192,6 +192,19 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
               ),
+              Container(
+                margin: EdgeInsets.only(left: 45),
+                height: 20,
+                width: 20,
+                decoration: BoxDecoration(
+                    color: status == 'Available' ? Colors.green : Colors.grey,
+                    borderRadius: BorderRadius.circular(30.0),
+                    border: Border.all(
+                      color: Colors.white,
+                      style: BorderStyle.solid,
+                      width: 2.0
+                    )),
+              ),
             ],
           ),
           SizedBox(height: 8.0),
@@ -216,7 +229,7 @@ class _MyHomePageState extends State<MyHomePage> {
           Expanded(
             child: Container(
               decoration: BoxDecoration(
-                color: status == 'Available'? Colors.green : Colors.grey,
+                color: status == 'Available' ? Colors.green : Colors.grey,
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(10),
                   bottomRight: Radius.circular(10),
