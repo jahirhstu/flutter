@@ -47,16 +47,16 @@ class _MyHomePageState extends State<MyHomePage> {
           Stack(
             children: <Widget>[
               Container(
-                height: 60,
+                height: 100,
                 color: Colors.white,
-                alignment: Alignment.topCenter,
+                alignment: Alignment(0, -0.4),
                 child: Text(
                   'Get coaching',
                   style: TextStyle(fontFamily: 'Montserrat', fontSize: 20.0),
                 ),
               ),
               Container(
-                margin: EdgeInsets.fromLTRB(25.0, 40.0, 25.0, 0.0),
+                margin: EdgeInsets.fromLTRB(25.0, 90.0, 25.0, 0.0),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20.0),
                   color: Colors.white,
@@ -67,7 +67,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ],
                 ),
-                child: Row(children: <Widget>[
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
                   Stack(
                     children: <Widget>[
                       Container(
@@ -75,7 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: Text(
                           'YOU HAVE',
                           style: TextStyle(
-                            fontFamily: 'Montserrat',
+                            fontFamily: 'Quicksand',
                             fontSize: 14.0,
                             color: Colors.grey,
                           ),
@@ -86,7 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: Text(
                           '206',
                           style: TextStyle(
-                              fontFamily: 'Montserrat',
+                              fontFamily: 'Quicksand',
                               fontWeight: FontWeight.bold,
                               color: Colors.black,
                               fontSize: 40),
@@ -94,13 +96,10 @@ class _MyHomePageState extends State<MyHomePage> {
                       )
                     ],
                   ),
-                  SizedBox(
-                    width: 60,
-                  ),
+                  SizedBox(width: 60),
                   Container(
                     height: 60,
                     width: 125,
-                    padding: EdgeInsets.fromLTRB(5.0, 25.0, 25.0, 25.0),
                     decoration: BoxDecoration(
                       color: Colors.greenAccent[100].withOpacity(0.5),
                       borderRadius: BorderRadius.circular(10.0),
@@ -109,7 +108,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: Text(
                         'Buy more',
                         style: TextStyle(
-                          fontFamily: 'Montserrat',
+                          fontFamily: 'Quicksand',
                           fontWeight: FontWeight.bold,
                           color: Colors.green,
                         ),
@@ -120,9 +119,9 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ],
           ),
-          SizedBox(height: 10),
+          SizedBox(height: 40),
           Container(
-            padding: EdgeInsets.fromLTRB(25, 0, 25, 0),
+            padding: EdgeInsets.only(left: 25.0, right: 25.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
@@ -145,17 +144,22 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
           ),
+          SizedBox(height: 10.0),
           GridView.count(
             primary: false,
-            crossAxisCount: 2,
-            mainAxisSpacing: 6.0,
-            crossAxisSpacing: 2.0,
             shrinkWrap: true,
+            crossAxisCount: 2,
+            crossAxisSpacing: 6.0,
+            mainAxisSpacing: 10.0,
             children: <Widget>[
-              _buildCard(),
-              _buildCard(),
-              _buildCard(),
-              _buildCard(),
+              _buildCard('Gang', 'Available', 1),
+              _buildCard('Gang', 'Available', 2),
+              _buildCard('Gang', 'Available', 3),
+              _buildCard('Gang', 'Available', 4),
+              _buildCard('Gang', 'Available', 5),
+              _buildCard('Gang', 'Available', 6),
+              _buildCard('Gang', 'Available', 7),
+              _buildCard('Gang', 'Available', 8),
             ],
           ),
         ],
@@ -163,15 +167,17 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  _buildCard() {
+  _buildCard(String name, String status, int cardIndex) {
     return Card(
-      margin: EdgeInsets.only(left: 25.0, right: 25.0),
+      margin: cardIndex % 2 == 0
+          ? EdgeInsets.only(right: 25.0)
+          : EdgeInsets.only(left: 25.0),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
-      elevation: 1,
+      elevation: 5.0,
       child: Column(
         children: <Widget>[
-          SizedBox(height: 20.0),
-          Column(
+          SizedBox(height: 12.0),
+          Stack(
             children: <Widget>[
               Container(
                 height: 60.0,
@@ -185,44 +191,38 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
               ),
-              Container(
-                padding: EdgeInsets.fromLTRB(15.0, 10.0, 15.0, 0.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      'Abdullah',
-                      style: TextStyle(
-                        fontFamily: 'Montserrat',
-                        fontSize: 14.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(height: 10.0),
-                    Text(
-                      'Available for the next five hours.',
-                      style: TextStyle(
-                        fontFamily: 'Montserrat',
-                        fontSize: 14.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
-              )
             ],
           ),
+          SizedBox(height: 8.0),
+          Text(
+            'Abdullah',
+            style: TextStyle(
+              fontFamily: 'Quicksand',
+              fontSize: 15.0,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          SizedBox(height: 10.0),
+          Text(
+            'Available for the next five hours.',
+            style: TextStyle(
+              fontFamily: 'Quicksand',
+              fontSize: 12.0,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          SizedBox(height: 15.0),
           Expanded(
             child: Container(
-              child: Center(
-                child: Text('Request'),
-              ),
               decoration: BoxDecoration(
                 color: Colors.green,
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(10),
                   bottomRight: Radius.circular(10),
                 ),
+              ),
+              child: Center(
+                child: Text('Request'),
               ),
             ),
           ),
