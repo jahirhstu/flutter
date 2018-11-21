@@ -68,54 +68,55 @@ class _MyHomePageState extends State<MyHomePage> {
                   ],
                 ),
                 child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                  Stack(
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
-                      Container(
-                        padding: EdgeInsets.fromLTRB(25.0, 25.0, 5.0, 5.0),
-                        child: Text(
-                          'YOU HAVE',
-                          style: TextStyle(
-                            fontFamily: 'Quicksand',
-                            fontSize: 14.0,
-                            color: Colors.grey,
+                      Stack(
+                        children: <Widget>[
+                          Container(
+                            padding: EdgeInsets.fromLTRB(25.0, 25.0, 5.0, 5.0),
+                            child: Text(
+                              'YOU HAVE',
+                              style: TextStyle(
+                                fontFamily: 'Quicksand',
+                                fontSize: 14.0,
+                                color: Colors.grey,
+                              ),
+                            ),
                           ),
-                        ),
+                          Container(
+                            padding: EdgeInsets.fromLTRB(25.0, 40.0, 5.0, 25.0),
+                            child: Text(
+                              '206',
+                              style: TextStyle(
+                                  fontFamily: 'Quicksand',
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                  fontSize: 40),
+                            ),
+                          )
+                        ],
                       ),
+                      SizedBox(width: 110.0),
                       Container(
-                        padding: EdgeInsets.fromLTRB(25.0, 40.0, 5.0, 25.0),
-                        child: Text(
-                          '206',
-                          style: TextStyle(
+                        margin: EdgeInsets.only(right: 25.0),
+                        height: 60,
+                        width: 125,
+                        decoration: BoxDecoration(
+                          color: Colors.greenAccent[100].withOpacity(0.5),
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        child: Center(
+                          child: Text(
+                            'Buy more',
+                            style: TextStyle(
                               fontFamily: 'Quicksand',
                               fontWeight: FontWeight.bold,
-                              color: Colors.black,
-                              fontSize: 40),
+                              color: Colors.green,
+                            ),
+                          ),
                         ),
                       )
-                    ],
-                  ),
-                  SizedBox(width: 60),
-                  Container(
-                    height: 60,
-                    width: 125,
-                    decoration: BoxDecoration(
-                      color: Colors.greenAccent[100].withOpacity(0.5),
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    child: Center(
-                      child: Text(
-                        'Buy more',
-                        style: TextStyle(
-                          fontFamily: 'Quicksand',
-                          fontWeight: FontWeight.bold,
-                          color: Colors.green,
-                        ),
-                      ),
-                    ),
-                  )
-                ]),
+                    ]),
               ),
             ],
           ),
@@ -153,12 +154,12 @@ class _MyHomePageState extends State<MyHomePage> {
             mainAxisSpacing: 10.0,
             children: <Widget>[
               _buildCard('Gang', 'Available', 1),
-              _buildCard('Gang', 'Available', 2),
-              _buildCard('Gang', 'Available', 3),
-              _buildCard('Gang', 'Available', 4),
-              _buildCard('Gang', 'Available', 5),
-              _buildCard('Gang', 'Available', 6),
-              _buildCard('Gang', 'Available', 7),
+              _buildCard('Of', 'Away', 2),
+              _buildCard('Four', 'Available', 3),
+              _buildCard('Rehan', 'Away', 4),
+              _buildCard('Roman', 'Available', 5),
+              _buildCard('Miki', 'Available', 6),
+              _buildCard('Gang', 'Away', 7),
               _buildCard('Gang', 'Available', 8),
             ],
           ),
@@ -195,7 +196,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           SizedBox(height: 8.0),
           Text(
-            'Abdullah',
+            name,
             style: TextStyle(
               fontFamily: 'Quicksand',
               fontSize: 15.0,
@@ -204,7 +205,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           SizedBox(height: 10.0),
           Text(
-            'Available for the next five hours.',
+            status,
             style: TextStyle(
               fontFamily: 'Quicksand',
               fontSize: 12.0,
@@ -215,7 +216,7 @@ class _MyHomePageState extends State<MyHomePage> {
           Expanded(
             child: Container(
               decoration: BoxDecoration(
-                color: Colors.green,
+                color: status == 'Available'? Colors.green : Colors.grey,
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(10),
                   bottomRight: Radius.circular(10),
